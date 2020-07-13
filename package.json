@@ -5,8 +5,11 @@
   "license": "MIT",
   "scripts": {
     "migrate": "knex migrate:latest",
+    "migrate:dev": "knex migrate:latest --env development",
     "build": "tsc",
-    "start": "node dist/src/server.js"
+    "start": "node dist/src/server.js",
+    "start:debug": "node --inspect=5858 -r ts-node/register dist/src/server.js",
+    "dev": "nodemon"
   },
   "dependencies": {
     "bcrypt": "^5.0.0",
