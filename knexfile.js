@@ -1,11 +1,20 @@
-require('ts-node').register();
+require("ts-node").register();
 
-module.exports = {
+const config = {
   development: {
-    client: 'postgresql',
+    client: "sqlite3",
+    connection: {
+      filename: "./dev.sqlite",
+    },
+    useNullAsDefault: true,
+  },
+  production: {
+    client: "postgresql",
     connection: {
       connectionString: process.env.DB_CONNECTION_STRING,
-      ssl: { rejectUnauthorized: false }
-    }
-  }
+      ssl: { rejectUnauthorized: false },
+    },
+  },
 };
+
+module.exports = config[process.env.NODE_ENV];
