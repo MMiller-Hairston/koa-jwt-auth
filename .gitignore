@@ -5,3 +5,4 @@ dist
 **.txt
 yarn-error.log
 **.env
+**.sqlite
